@@ -5,4 +5,4 @@ You can install for this application =>
 3-After than, You write in console "sudo adb start-server"                                       
 4-You click the Mozilla Firefox browser                                        
 5-You click the Tools-> Web Developer->WebIDE                                   
-6-Finally You upload and run to file the WebIDE
+6-Finally You upload and run to file the WebIDE 
