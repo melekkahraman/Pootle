@@ -1,0 +1,230 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<script src='js/jquery-2.1.0.min.js'></script>
+		<script src='js/brick-1.0.1.js'></script>
+		<script src='js/script.js'></script>
+		<script src="js/md5.js"></script>
+
+		
+		<link type='text/css' href='style/lists.css' rel="stylesheet">
+		<link type='text/css' href='style/toolbars.css' rel="stylesheet">
+		<link type='text/css' href='style/headers.css' rel="stylesheet">
+		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
+		<link type='text/css' href='style/style.css' rel="stylesheet">
+		<link type='text/css' href='style/octicons.css' rel="stylesheet"> 
+<link rel="resource" type="application/l10n" href="locales/locales.ini" />
+    <script type="application/javascript" src="js/l10n.js"></script>
+    <base target="_blank">
+	</head>
+	<style>
+  #gameArea {
+    display: none;
+  }
+  #field {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 20px auto;
+    
+  }
+  #field td{
+    border: 1px solid black;
+    min-width: 20px;
+    min-height: 20px;
+    text-align: center;
+    empty-cells: show;
+  }
+  #field td.closed{
+    background-color: darkgray;
+  }
+  #field td.flagged{
+    background-color: red;
+  }
+  #field td.mine{
+    background: url("mine_small.jpg") red no-repeat center;
+  }
+  #status {
+    width: 75%;
+    border: 1px solid gray;
+    margin: 10px auto;
+    text-align: center;
+  }
+</style>
+	<body>	
+		<x-deck>
+			<x-card id='search_card' selected transition="show">
+				<x-layout id='search_layout'>
+					<header class='top-menu colorBlue'>
+						<button disabled></button>
+						<menu type="toolbar">
+						    <button id='toAbout'><span class="mega-octicon octicon-question"></span></button>
+						</menu>
+						
+						<h1><img class="logo" src="pootle.jpg" alt="Örnek Resim"  align="left"><center>POOTLE</center></h1>
+						
+					</header>
+					<section id='search_section'>
+						<div id='inputs'>
+							
+							<input name='username' placeholder=' Username'class='input form-control'>
+							<input name='password' placeholder=' Password'class='input form-control'input type='password'>
+                                                        <button id='submit' class='btn-success input buttonBlue'>LOGIN</button>
+							<p id="checkbox"><input type='checkbox'id="remember" class='check' name='remember' value= "remember" >Remember me</p>
+							
+						</div>
+                                                <div id="results" > </div>
+						                                    <div id="filepage"></div>
+						                                    <div id="tablepage"></div>
+						                                    <table id="field"></table>
+<div id="start">
+	    <img class="giris" src="pootle.jpg" alt="Örnek Resim" align="center">
+	   <body background="arka-plan.jpg">
+	 
+		<button id='kaydol' data-l10n-id="kaydol" class='btn-success button buttonBlue'>REGISTER</button>
+	  <button id='giris' data-l10n-id="giris"class='btn-success button buttonBlue'>LOGIN</button>
+	
+</script>
+
+
+			 </div>		
+<div id="registerresult">		
+</div> 
+<div id="kayit">
+	
+			 <input type="image" value="submit" src="geri.jpg" height="40" width="40" id='logp' />
+	
+     
+	<input name='isim' placeholder=' Name'class='input form-control'>
+	<input name='sunucu' placeholder='Server Name'class='input form-control'>
+	<input name='namekayit' placeholder=' Username'class='input form-control'>
+	<input name='passwordkayit' placeholder='Password'class='input form-control'input type='password'>
+	  
+						
+	<button id='rkayit' data-l10n-id='rkayit'class='btn-success input buttonBlue'>SAVE</button>					
+</div>
+<div id="cevir">	
+<tr><td> <input type="image" value="submit" src="geri.jpg" height="40" width="40" id='tableback' /></td><td><input type="image" value="submit" src="logout.jpg" height="40" width="40" align="right" id='logout' /></td></tr>	
+<p id="kelime" ></p>
+<textarea id="cevrilen" style="width:95%" rows="6"  background-color:"blue" padding-left:"9px"></textarea>
+<p id="koneri" ></p>
+ <p id="oneri1" ></p>
+ <p id="oneri2" ></p>
+ <p id="oneri3" ></p>
+ <p id="oneri4" ></p>
+ <p id="oneri5" ></p>
+		  
+
+	<button id='gonder' data-l10n-id="gonder"class='btn-success button buttonBlue' >SEND</button>
+
+<tr><td><input type="image" value="submit" src="leftok.jpg" height="50" width="50" id='onceki' align="left"/></td><td><input type="image" value="submit" src="rightok.jpg" height="50" width="50" id='sonraki' align="right"/></td>
+
+
+		</div>
+					</section>
+					
+				</x-layout>
+			</x-card>
+
+<div id="project"></div>
+  
+
+     
+  				
+			<x-card id='res_card' transition-type='slide-right'>
+				<x-layout id='res_layout'>
+					<header class='top-menu colorBlue'>
+						<button class='toSearch'><span class="mega-octicon octicon-search"></span></button>
+						<menu type="toolbar">
+						    <button id='star_this'><span class="mega-octicon octicon-star"></span></button>
+						</menu>
+						<h1 id='username'></h1>
+					</header>
+					<section id='res_section'>
+                                                <div data-role="page" id="home">
+                                               <div data-theme="a" data-role="header">
+                                           <div data-role="content">
+                                             <div class="example-wrapper" data-iscroll>
+                                               <ul data-role="listview"  id="reslist" data-theme="a">
+                
+                                              </ul>
+                                             </div>
+                                         </div>
+
+						</div>
+                                         </div>
+					</section>
+					
+				</x-layout>
+			</x-card>
+			
+			<x-card id='starred_card'>
+				<x-layout id='starred'>
+					
+					<section data-type='list'>
+						<ul id='star_list'>
+						</ul>
+					</section>
+					<footer role="toolbar" class='colorBlue'>
+						  
+					</footer>
+				</x-layout>
+			</x-card>
+			
+			<x-card id='history_card'>
+				<x-layout id='history'>
+					<header class='top-menu colorBlue'>
+						<menu type="toolbar">
+						    <button id='clear'><span class="mega-octicon octicon-trashcan"></span></button>
+						</menu> 
+						<button disabled></button>
+						<h1>History</h1>
+					</header>
+					<section data-type='list'>
+						<ul id='list_his'>
+						</ul>
+					</section>
+					
+				</x-layout>
+			</x-card>
+			
+			<x-card id='about_card'>
+				<x-layout id='about'>
+					<header class='top-menu colorBlue'>
+						<menu type="toolbar">
+							<button disabled></button>
+						</menu>
+						<button class='toSearch'><span class="mega-octicon octicon-arrow-left"></span></button>
+						<h1 data-l10n-id='out'>About</h1>
+					</header>
+					<section id='about_page' data-type='list'>
+						<header class="listheaderBlue borderBlue" data-l10n-id='ver'>Version</header>
+						<p>1.1</p>
+						<header class="listheaderBlue borderBlue" data-l10n-id='dev'>Developer</header>
+						<p><strong>Melek Kahraman</strong> 
+						<header class="listheaderBlue borderBlue" data-l10n-id='deve'>Developer's e-mail</header>
+						<p>melekkah12@gmail.com</p> 
+						<header class="listheaderBlue borderBlue" data-l10n-id='lis'> LICENSE</header>
+						<p>    GNU GENERAL PUBLIC LICENSE
+                       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc., <http://fsf.org/>
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.</p> 
+						<header class="listheaderBlue borderBlue"></header>
+						<a href="https://github.com/melekkahraman/Pootle"><header class="listheaderBlue borderBlue" data-l10n-id='co'>CODES</header></a>
+						
+						<p>support us with a review on Mozilla Market Place!</p>
+					</section>
+				</x-layout>
+			</x-card>
+			
+		</x-deck>
+		
+
+			
+
+<div id="placeholder"></div>
+	</body>
+</html>
